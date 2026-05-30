@@ -80,7 +80,7 @@ main #Display_dashboard {
 main #Display_dashboard .tela_desafio {
   width: 90%;
   height: 90%;
-  border: 1px solid var(--basico2);
+  border: 3px solid var(--basico2);
   border-radius: 10px;
   padding: 5px;
   position: absolute;
@@ -137,7 +137,6 @@ main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor p in
 }
 main #Display_dashboard .selecionado {
   right: 5%;
-  background-color: var(--cor1);
 }
 
 footer {

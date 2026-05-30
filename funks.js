@@ -15,7 +15,7 @@ btns_opcao_desafio.forEach((btn,index) =>{
         console.log(e.target.innerText.at(-1));
         telas_desafios.forEach((tela,index) => {
             tela.classList.remove("selecionado")
-            tela.style.backgroundColor = `var(--cor${index+1})`
+            tela.style.borderColor = `var(--cor${index+1})`
         })
         telas_desafios[e.target.innerText.at(-1)-1].classList.add("selecionado")
     })
