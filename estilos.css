@@ -1,1 +1,157 @@
-/*# sourceMappingURL=estilos.css.map */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Courier New", Courier, monospace;
+  text-decoration: none;
+}
+
+:root {
+  --cor1:#ff0000;
+  --cor2:#0083fd;
+  --cor3:#eeff00;
+  --cor4:#00ff2a;
+  --cor5:#00fff2;
+  --cor6:#cc00ff;
+  --basico1: white;
+  --basico2: black;
+}
+
+html {
+  width: 100dvw;
+  height: 100dvh;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--basico2);
+}
+header h1 {
+  color: var(--basico1);
+}
+
+main {
+  width: 100%;
+  display: flex;
+  flex-grow: 17;
+  background-color: var(--basico1);
+}
+main nav {
+  width: 15%;
+  background-color: var(--basico2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-evenly;
+  padding: 10px 0;
+}
+main nav a {
+  width: 90%;
+  padding: 15px 10px;
+  background-color: var(--cor4);
+  color: var(--basico2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+main #Display_dashboard {
+  width: 85%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  transition: 0.2s ease-in-out;
+}
+main #Display_dashboard .tela_desafio {
+  width: 90%;
+  height: 90%;
+  border: 1px solid var(--basico2);
+  border-radius: 10px;
+  padding: 5px;
+  position: absolute;
+  transition: 0.2s ease-in-out;
+  right: 100%;
+}
+main #Display_dashboard .tela_desafio h2 {
+  text-align: center;
+  border-bottom: 2px solid var(--basico2);
+  width: 90%;
+  margin: auto;
+}
+main #Display_dashboard .tela_desafio .conversor {
+  background-color: white;
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+main #Display_dashboard .tela_desafio .conversor .conversao, main #Display_dashboard .tela_desafio .conversor .convertido {
+  border: 1px solid var(--basico2);
+  width: 90%;
+  height: 45%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+main #Display_dashboard .tela_desafio .conversor .conversao h3, main #Display_dashboard .tela_desafio .conversor .convertido h3 {
+  font-size: 2em;
+}
+main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor, main #Display_dashboard .tela_desafio .conversor .convertido #form_conversor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor p, main #Display_dashboard .tela_desafio .conversor .convertido #form_conversor p {
+  display: flex;
+  gap: 10px;
+  font-size: 2em;
+  width: 50%;
+}
+main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor p input, main #Display_dashboard .tela_desafio .conversor .convertido #form_conversor p input {
+  width: 100%;
+  padding: 0;
+  font-size: 1em;
+  outline: none;
+  border: none;
+}
+main #Display_dashboard .selecionado {
+  right: 5%;
+  background-color: var(--cor1);
+}
+
+footer {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  background-color: var(--basico2);
+  color: white;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+footer a {
+  color: white;
+}/*# sourceMappingURL=estilos.css.map */
