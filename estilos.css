@@ -160,6 +160,9 @@ main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc input 
   border: none;
   outline: none;
 }
+main #Display_dashboard .tela_desafio .calculadora_imc #result_imc, main #Display_dashboard .tela_desafio .calculadora_imc #result_faixa_imc {
+  font-size: 2em;
+}
 main #Display_dashboard .selecionado {
   right: 5%;
 }

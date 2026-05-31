@@ -10,10 +10,13 @@ const form_dolar = document.getElementById("form_conversor")
 let dolar_padrao = 5
 
 //Desafio 2
+let imc = 0
+const form_imc = document.getElementById("form_calcular_imc")
+const result_imc = document.getElementById("result_imc")
+const result_faixa_imc = document.getElementById("result_faixa_imc")
 
 
-
-
+//barra lateral
 btns_opcao_desafio.forEach((btn,index) =>{
     btn.style.backgroundColor = `var(--cor${index+1})`
     btn.addEventListener("click", (e) =>{
@@ -28,6 +31,7 @@ btns_opcao_desafio.forEach((btn,index) =>{
     })
 })
 
+//Desafio 1
 async function getdolar()
 {
     const url = " https://economia.awesomeapi.com.br/json/last/USD-BRL"
@@ -51,3 +55,28 @@ form_dolar.addEventListener("input", (e)=>{
     const calculado = dolar_padrao * input_user
     conversao_atual_view.innerHTML = calculado.toLocaleString("pt-BR",{style:"currency", currency:"BRL"})
 })
+
+
+//desafio 2
+form_imc.addEventListener("input", (e) =>{
+    const result_form = new FormData(form_imc)
+    const dados_form = Object.fromEntries(result_form.entries())
+    // console.log(dados_form);
+
+    let calculo = +dados_form.peso/(((+dados_form.altura < 3? +dados_form.altura*100 : +dados_form.altura)/100)**2)
+    console.log(calculo);
+    console.log(!Number.isFinite(calculo));
+    console.log(!isNaN(calculo.toFixed(2)));
+    result_imc.innerHTML = `Imc Calculado: ${!isNaN(calculo.toFixed(2))? !Number.isFinite(calculo)? "0" : calculo.toFixed(2): "0"}`
+    if(dados_form.sexo == "Masculino")
+    {
+        if(calculo < 18.5)
+        {
+            result_faixa_imc.innerHTML = `Seu caso é: Abaixo do peso`
+        }
+    }
+})
+function calcular_imc()
+{
+
+}
