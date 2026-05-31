@@ -1,17 +1,24 @@
 const btns_opcao_desafio = document.querySelectorAll(".btn_opcao_desafio")
 const telas_desafios = document.querySelectorAll(".tela_desafio")
-
+const background_dashboard = document.getElementById("Display_dashboard")
 
 //desafio 1
 const dolar_atual_view = document.querySelector(".dolar_atual")
+const real_atual_view = document.querySelector(".real_atual")
 const conversao_atual_view = document.querySelector(".conversao_atual")
 const form_dolar = document.getElementById("form_conversor")
 let dolar_padrao = 5
+
+//Desafio 2
+
+
+
 
 btns_opcao_desafio.forEach((btn,index) =>{
     btn.style.backgroundColor = `var(--cor${index+1})`
     btn.addEventListener("click", (e) =>{
         e.preventDefault()
+        background_dashboard.style.backgroundColor = `var(--cor${e.target.innerText.at(-1)})`
         console.log(e.target.innerText.at(-1));
         telas_desafios.forEach((tela,index) => {
             tela.classList.remove("selecionado")
@@ -29,7 +36,9 @@ async function getdolar()
         const dolar_atual = +dolar_hoje.USDBRL.bid
         dolar_padrao = +dolar_hoje.USDBRL.bid
         // console.log(dolar_atual.toLocaleString("pt-BR",{style:"currency", currency:"BRL"}));
-        dolar_atual_view.innerHTML = `Valor do dolar hoje: ${dolar_atual.toLocaleString("pt-BR",{style:"currency", currency:"BRL"})}`
+        dolar_atual_view.innerHTML = `Valor do dolar hoje: ${(dolar_atual).toLocaleString("pt-BR",{style:"currency", currency:"BRL"})}`
+        
+
     } catch (error) {
         
     }

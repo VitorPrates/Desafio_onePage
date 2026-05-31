@@ -10,7 +10,7 @@
 {
     --cor1:#ff0000;
     --cor2:#0083fd;
-    --cor3:#eeff00;
+    --cor3:#ffa600;
     --cor4:#00ff2a;
     --cor5:#00fff2;
     --cor6:#cc00ff;
@@ -80,11 +80,13 @@ main
         position: relative;
         overflow: hidden;
         transition: 0.2s ease-in-out;
+        background-color: var(--cor1);
         .tela_desafio
         {
             width: 90%;
             height: 90%;
-            border: 3px solid var(--basico2);
+            border: 3px solid var(--cor1);
+            background-color: white;
             border-radius: 10px;
             padding: 5px;
             position: absolute;
@@ -143,6 +145,33 @@ main
                                 
                             }
                         }
+                    }
+                }
+            }
+            .calculadora_imc
+            {
+                height: 90%;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                flex-direction: column;
+                #form_calcular_imc
+                {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    width: 50%;
+                    align-items: center;
+                    // border: 1px solid;
+                    padding: 10px;
+                    font-size: 1.2em;
+                    input
+                    {
+                        text-align: center;
+                        font-size: 1.2em;
+                        border-radius: 50px;
+                        border: none;
+                        outline: none;
                     }
                 }
             }

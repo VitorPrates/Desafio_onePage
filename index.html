@@ -21,7 +21,7 @@
             <a href="" class="btn_opcao_desafio">Desafio 6</a>           
         </nav>
         <section id="Display_dashboard">
-            <section class="tela_desafio selecionado">
+            <section class="tela_desafio">
                 <h2>Desafio 1 - Conversor de Moedas USD para BRL </h2>
                 <article class="conversor">
                     <div class="conversao">
@@ -32,14 +32,28 @@
                         </form>
                     </div>
                     <div class="convertido">
-                        <h4 >O dolar hoje vale: R$00,00 </h4>
+                        
                         <p>Valor Convertido:</p>
                         <h3 class="conversao_atual">R$00,00</h3>
                     </div>
                 </article>
             </section>
-            <section class="tela_desafio">
-                <h2>Desafio 2</h2>
+            <section class="tela_desafio selecionado">
+                <h2>Desafio 2 - Cálculo de IMC</h2>
+                <article class="calculadora_imc">
+                    <form id="form_calcular_imc">
+                        <label for="Peso">Peso</label>
+                        <input type="number" placeholder="Insira aqui peso">
+                        <label for="Altura">Altura(cm)</label>
+                        <input type="number" placeholder="Insira aqui peso">
+                        <label for="Masculino">Masculino</label>
+                        <input type="radio" name="sexo" value="Masculino" checked>
+                        <label for="Femenino">Femenino</label>
+                        <input type="radio" name="sexo" value="Femenino">
+                    </form>
+                    <h4 id="result_imc">Imc Calculado: 0</h4>
+                    <h4 id="result_faixa_imc">Seu caso é:</h4>
+                </article>
             </section>
             <section class="tela_desafio">
                 <h2>Desafio 3</h2>
