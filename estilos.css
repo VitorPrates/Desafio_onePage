@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -78,25 +79,85 @@ main #Display_dashboard {
   transition: 0.2s ease-in-out;
   background-color: var(--cor1);
 }
-main #Display_dashboard .tela_desafio {
-  width: 90%;
-  height: 90%;
-  border: 3px solid var(--cor1);
-  background-color: white;
-  border-radius: 10px;
-  padding: 5px;
+main #Display_dashboard .scene {
+  perspective: 800px;
+  width: 400px;
+  height: 400px;
+}
+main #Display_dashboard .cube {
+  width: 400px;
+  height: 400px;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: grab;
+  /* posição inicial */
+  transform: rotateX(-20deg) rotateY(30deg);
+}
+main #Display_dashboard .cube:active {
+  cursor: grabbing;
+}
+main #Display_dashboard .face {
   position: absolute;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: white;
+  border: 2px solid white;
+  background: rgba(0, 123, 255, 0.7);
+}
+main #Display_dashboard {
+  /* metade da largura = 100px */
+}
+main #Display_dashboard .front {
+  transform: translateZ(200px);
+  background-color: red;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: baseline;
+}
+main #Display_dashboard .back {
+  transform: rotateY(180deg) translateZ(200px);
+  background-color: var(--cor2);
+}
+main #Display_dashboard .right {
+  transform: rotateY(90deg) translateZ(200px);
+  background-color: var(--cor3);
+}
+main #Display_dashboard .left {
+  transform: rotateY(-90deg) translateZ(200px);
+  background-color: var(--cor4);
+}
+main #Display_dashboard .top {
+  transform: rotateX(90deg) translateZ(200px);
+  background-color: var(--cor5);
+}
+main #Display_dashboard .bottom {
+  background-color: var(--cor6);
+  transform: rotateX(-90deg) translateZ(200px);
+}
+main #Display_dashboard .tela_desafio {
+  width: 100%;
+  height: 100%;
+  border: 3px solid var(--cor1);
+  border-radius: 10px;
   transition: 0.2s ease-in-out;
-  right: 100%;
+  display: flex;
+  flex-direction: column;
 }
 main #Display_dashboard .tela_desafio h2 {
   text-align: center;
   border-bottom: 2px solid var(--basico2);
   width: 90%;
+  font-size: small;
   margin: auto;
 }
 main #Display_dashboard .tela_desafio .conversor {
-  background-color: white;
+  color: black;
   height: 95%;
   display: flex;
   flex-direction: column;
@@ -113,9 +174,10 @@ main #Display_dashboard .tela_desafio .conversor .conversao, main #Display_dashb
   justify-content: center;
   align-items: center;
   gap: 20px;
+  background-color: white;
 }
-main #Display_dashboard .tela_desafio .conversor .conversao h3, main #Display_dashboard .tela_desafio .conversor .convertido h3 {
-  font-size: 2em;
+main #Display_dashboard .tela_desafio .conversor .conversao h4, main #Display_dashboard .tela_desafio .conversor .conversao h3, main #Display_dashboard .tela_desafio .conversor .convertido h4, main #Display_dashboard .tela_desafio .conversor .convertido h3 {
+  font-size: 0.6em;
 }
 main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor, main #Display_dashboard .tela_desafio .conversor .convertido #form_conversor {
   display: flex;
@@ -124,16 +186,19 @@ main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor, mai
   justify-content: center;
   gap: 10px;
 }
+main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor label, main #Display_dashboard .tela_desafio .conversor .convertido #form_conversor label {
+  font-size: small;
+}
 main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor p, main #Display_dashboard .tela_desafio .conversor .convertido #form_conversor p {
   display: flex;
   gap: 10px;
-  font-size: 2em;
+  font-size: small;
   width: 50%;
 }
 main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor p input, main #Display_dashboard .tela_desafio .conversor .convertido #form_conversor p input {
   width: 100%;
   padding: 0;
-  font-size: 1em;
+  font-size: small;
   outline: none;
   border: none;
 }
@@ -151,11 +216,11 @@ main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc {
   width: 50%;
   align-items: center;
   padding: 10px;
-  font-size: 1.2em;
+  font-size: small;
 }
 main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc input {
   text-align: center;
-  font-size: 1.2em;
+  font-size: small;
   border-radius: 50px;
   border: none;
   outline: none;

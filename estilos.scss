@@ -81,27 +81,110 @@ main
         overflow: hidden;
         transition: 0.2s ease-in-out;
         background-color: var(--cor1);
+        //elementos 3D
+        .scene
+        { 
+            perspective: 800px; 
+            width: 400px;
+            height: 400px;
+            // background-color: red;
+        }
+        .cube {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            transform-style: preserve-3d;
+            cursor: grab;
+            /* posição inicial */
+            transform: rotateX(-20deg) rotateY(30deg);
+            // transition: transform 0.5s ease;
+        }
+        .cube:active {
+            cursor: grabbing;
+        }
+
+        .face {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 2rem;
+            color: white;
+            border: 2px solid white;
+            background: rgba(0, 123, 255, 0.7);
+            // user-select: none; 
+            // -webkit-user-select: none;   
+        }
+
+        /* metade da largura = 100px */
+        .front
+        {
+            transform: translateZ(200px);
+            background-color: red;
+            height: 100%;
+            width: 100%;
+            // overflow-y: scroll;
+            display: flex;
+            align-content: center;
+            justify-content: baseline;
+            // text-align: center;
+            // pointer-events: none;
+        }
+        .back
+        {
+            transform: rotateY(180deg) translateZ(200px);
+            background-color: var(--cor2);
+        }
+
+        .right  
+        { 
+            transform: rotateY(90deg) translateZ(200px);
+            background-color: var(--cor3);
+        }
+        .left
+        {
+            transform: rotateY(-90deg) translateZ(200px);
+            background-color: var(--cor4);
+        }
+
+        .top
+        { 
+            transform: rotateX(90deg) translateZ(200px); 
+            background-color: var(--cor5);
+        }
+        .bottom 
+        { 
+            background-color: var(--cor6);
+            transform: rotateX(-90deg) translateZ(200px); 
+        }
+        //Fim elementos 3D
+
         .tela_desafio
         {
-            width: 90%;
-            height: 90%;
+            width: 100%;
+            height: 100%;
             border: 3px solid var(--cor1);
-            background-color: white;
             border-radius: 10px;
-            padding: 5px;
-            position: absolute;
             transition: 0.2s ease-in-out;
-            right: 100%;
+            display: flex;
+            flex-direction: column;
             h2
             {
                 text-align: center;
                 border-bottom: 2px solid var(--basico2);
                 width: 90%;
+                // height: fit-content;
+                font-size: small;
                 margin: auto;
             }
             .conversor
             {
-                background-color: white;
+
+                color: black;
                 height: 95%;
                 display: flex;
                 flex-direction: column;
@@ -118,9 +201,10 @@ main
                     justify-content: center;
                     align-items: center;
                     gap: 20px;
-                    h3
+                    background-color: white;
+                    h4,h3
                     {
-                        font-size: 2em;
+                        font-size: 0.6em;
                     }
                     #form_conversor
                     {
@@ -129,17 +213,21 @@ main
                         align-items: center;
                         justify-content: center;
                         gap: 10px;
+                        label
+                        {
+                            font-size: small;
+                        }
                         p
                         {
                             display: flex;
                             gap: 10px;
-                            font-size: 2em;
+                            font-size: small;
                             width: 50%;
                             input
                             {
                                 width: 100%;
                                 padding: 0;
-                                font-size: 1em;
+                                font-size: small;
                                 outline: none;
                                 border: none;
                                 
@@ -164,11 +252,11 @@ main
                     align-items: center;
                     // border: 1px solid;
                     padding: 10px;
-                    font-size: 1.2em;
+                    font-size: small;
                     input
                     {
                         text-align: center;
-                        font-size: 1.2em;
+                        font-size: small;
                         border-radius: 50px;
                         border: none;
                         outline: none;
