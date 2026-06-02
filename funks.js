@@ -82,7 +82,6 @@ function rodar(pos)
                 alvoX = 0;
                 alvoY = 180;
                 break;
-
             case 3:
                 alvoX = 0;
                 alvoY = 270;
