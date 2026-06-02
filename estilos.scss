@@ -42,6 +42,12 @@ header
     {
         color: var(--basico1);
     }
+    svg
+    {
+        background-color: red;
+        color: rgb(255, 255, 255);
+        width: 70px;
+    }
 }
 main
 {
@@ -117,6 +123,7 @@ main
             border: 2px solid var(--basico2);
             // user-select: none; 
             // -webkit-user-select: none;   
+            opacity: 1;
         }
 
         /* metade da largura = 100px */
@@ -127,12 +134,10 @@ main
             
             height: 100%;
             width: 100%;
-            // overflow-y: scroll;
             display: flex;
             align-content: center;
             justify-content: baseline;
-            // text-align: center;
-            // pointer-events: none;
+            
         }
         .back
         {

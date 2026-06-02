@@ -42,6 +42,11 @@ header {
 header h1 {
   color: var(--basico1);
 }
+header svg {
+  background-color: red;
+  color: rgb(255, 255, 255);
+  width: 70px;
+}
 
 main {
   width: 100%;
@@ -106,6 +111,7 @@ main #Display_dashboard .face {
   align-items: center;
   font-size: 2rem;
   border: 2px solid var(--basico2);
+  opacity: 1;
 }
 main #Display_dashboard {
   /* metade da largura = 100px */

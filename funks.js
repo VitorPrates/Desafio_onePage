@@ -3,8 +3,12 @@ const telas_desafios = document.querySelectorAll(".tela_desafio")
 const background_dashboard = document.getElementById("Display_dashboard")
 const tela_conversor = document.querySelector(".conversor")
 const btn_mudar_conversao = document.querySelector(".btn_mudar_conversao")
+
 //Elementos 3D - elementos
 const cube = document.getElementById('cube');
+const faces = document.querySelectorAll(".face")
+const eye = document.querySelector(".olho")
+
 let rodando = false
 
 let isDragging = false;
@@ -19,6 +23,15 @@ let rotateY = 30;
 //Fim elementos 3D - elementos
 
 //Elementos 3D - funções
+eye.addEventListener("click",()=>{
+
+    faces.forEach(face =>{
+        console.log(face.style.opacity);
+        face.style.opacity = face.style.opacity == 1 ? 0.5 : 1
+    })
+})
+
+
 cube.addEventListener('mousedown', (e) => {
     isDragging = true;
     document.body.style.userSelect = 'none';
@@ -93,6 +106,7 @@ function rodar(pos)
         function animar()
         {
             const velocidade = 0.15;
+            // const velocidade = 1.99;
 
             rotateX += (alvoX - rotateX) * velocidade;
             rotateY += (alvoY - rotateY) * velocidade;
@@ -175,7 +189,7 @@ async function getdolar()
     const url = " https://economia.awesomeapi.com.br/json/last/USD-BRL"
     try {
         const dolar_hoje = await(await fetch(url)).json()
-        console.log(dolar_hoje);
+        // console.log(dolar_hoje);
         const dolar_atual = +dolar_hoje.USDBRL.bid
         dolar_padrao = +dolar_hoje.USDBRL.bid
         // console.log(dolar_atual.toLocaleString("pt-BR",{style:"currency", currency:"BRL"}));
