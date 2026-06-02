@@ -1,7 +1,8 @@
 const btns_opcao_desafio = document.querySelectorAll(".btn_opcao_desafio")
 const telas_desafios = document.querySelectorAll(".tela_desafio")
 const background_dashboard = document.getElementById("Display_dashboard")
-
+const tela_conversor = document.querySelector(".conversor")
+const btn_mudar_conversao = document.querySelector(".btn_mudar_conversao")
 //Elementos 3D - elementos
 const cube = document.getElementById('cube');
 let rodando = false
@@ -26,6 +27,7 @@ window.addEventListener('mouseup', () => {
     isDragging = false;
     document.body.style.userSelect = '';
     // console.log(`X: ${rotateX} / Y: ${rotateY}`);
+    // acoes_rotacao()
 });
 
 window.addEventListener('mousemove', (e) => {
@@ -118,7 +120,14 @@ function rodar(pos)
 
 function acoes_rotacao()
 {
-    
+    if(rotateX < -90 || rotateX > 90 )
+    {
+        tela_conversor.style.transform = "rotateZ(180deg)"
+    }
+    else
+    {
+        tela_conversor.style.transform = "rotateZ(0deg)"
+    }
 }
 
 //Fim- elementos 3d - funções
@@ -128,8 +137,10 @@ function acoes_rotacao()
 const dolar_atual_view = document.querySelector(".dolar_atual")
 const real_atual_view = document.querySelector(".real_atual")
 const conversao_atual_view = document.querySelector(".conversao_atual")
+const para_converter_view = document.querySelector(".para_converter")
 const form_dolar = document.getElementById("form_conversor")
 let dolar_padrao = 5
+let real_para_dolar = true
 
 //Desafio 2
 let imc = 0
@@ -143,7 +154,7 @@ btns_opcao_desafio.forEach((btn,index) =>{
     btn.style.backgroundColor = `var(--cor${index+1})`
     btn.addEventListener("click", (e) =>{
         e.preventDefault()
-        background_dashboard.style.backgroundColor = `var(--cor${e.target.innerText.at(-1)})`
+        // background_dashboard.style.backgroundColor = `var(--cor${e.target.innerText.at(-1)})`
         console.log(e.target.innerText.at(-1));
         rodar(index+1)
         telas_desafios.forEach((tela,index) => {
@@ -153,6 +164,7 @@ btns_opcao_desafio.forEach((btn,index) =>{
         // telas_desafios[e.target.innerText.at(-1)-1].classList.add("selecionado")
     })
 })
+
 
 //Desafio 1
 async function getdolar()
@@ -164,8 +176,6 @@ async function getdolar()
         dolar_padrao = +dolar_hoje.USDBRL.bid
         // console.log(dolar_atual.toLocaleString("pt-BR",{style:"currency", currency:"BRL"}));
         dolar_atual_view.innerHTML = `Valor do dolar hoje: ${(dolar_atual).toLocaleString("pt-BR",{style:"currency", currency:"BRL"})}`
-        
-
     } catch (error) {
         
     }
@@ -173,11 +183,51 @@ async function getdolar()
 }
 getdolar()
 
+function calcular_resultado_cotacao(valor)
+{
+    if(real_para_dolar)
+    {
+        const calculado = dolar_padrao * valor
+        conversao_atual_view.innerHTML = calculado.toLocaleString("pt-BR",{style:"currency", currency:"BRL"})
+    }
+    else
+    {
+        const calculado = valor / dolar_padrao
+        conversao_atual_view.innerHTML = calculado.toLocaleString("en",{style:"currency", currency:"USD"})
+    }
+}
 form_dolar.addEventListener("input", (e)=>{
     let input_user = e.target.value
-    const calculado = dolar_padrao * input_user
-    conversao_atual_view.innerHTML = calculado.toLocaleString("pt-BR",{style:"currency", currency:"BRL"})
+    calcular_resultado_cotacao(input_user)
 })
+btn_mudar_conversao.addEventListener("click",()=>{
+    let rot = 0
+    function rodar_conversor()
+    {
+        
+        if(rot < 330)
+        {
+            requestAnimationFrame(rodar_conversor)
+        }
+        rot += 30
+
+        btn_mudar_conversao.style.transform = `rotate(${rot}deg)`
+    }
+    requestAnimationFrame(rodar_conversor)
+    
+    real_para_dolar = !real_para_dolar
+    if(!real_para_dolar)
+    {
+        para_converter_view.innerHTML = "R$<input type='number' placeholder='00,00' min='0'>"
+        conversao_atual_view.innerHTML = "$00,00"
+    }
+    else
+    {
+        para_converter_view.innerHTML = "$<input type='number' placeholder='00,00' min='0'>"
+        conversao_atual_view.innerHTML = "R$00,00"
+    }
+})
+
 
 
 //desafio 2

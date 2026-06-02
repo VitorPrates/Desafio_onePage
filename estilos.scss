@@ -16,6 +16,7 @@
     --cor6:#cc00ff;
     --basico1: white;
     --basico2: black;
+    --basico3: #b6b6b6;
 }
 html
 {
@@ -80,7 +81,7 @@ main
         position: relative;
         overflow: hidden;
         transition: 0.2s ease-in-out;
-        background-color: var(--cor1);
+        background-color: var(--basico3);
         //elementos 3D
         .scene
         { 
@@ -113,9 +114,7 @@ main
             align-items: center;
 
             font-size: 2rem;
-            color: white;
-            border: 2px solid white;
-            background: rgba(0, 123, 255, 0.7);
+            border: 2px solid var(--basico2);
             // user-select: none; 
             // -webkit-user-select: none;   
         }
@@ -205,6 +204,11 @@ main
                     h4,h3
                     {
                         font-size: 0.6em;
+                    }
+                    svg
+                    {
+                        width: 10%;
+                        cursor: pointer;
                     }
                     #form_conversor
                     {
