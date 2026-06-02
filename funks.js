@@ -11,8 +11,11 @@ let isDragging = false;
 let previousX = 0;
 let previousY = 0;
 
-let rotateX = -20;
-let rotateY = 30;
+// let rotateX = -20;
+// let rotateY = 30;
+let rotateX = 0;
+let rotateY = 180;
+
 //Fim elementos 3D - elementos
 
 //Elementos 3D - funções
@@ -228,31 +231,45 @@ btn_mudar_conversao.addEventListener("click",()=>{
     }
 })
 
-
-
 //desafio 2
-form_imc.addEventListener("input", (e) =>{
-    const result_form = new FormData(form_imc)
-    const dados_form = Object.fromEntries(result_form.entries())
-    // console.log(dados_form);
+form_imc.addEventListener("input", (e) => {
+    const result_form = new FormData(form_imc);
+    const dados_form = Object.fromEntries(result_form.entries());
 
-    let calculo = +dados_form.peso/(((+dados_form.altura < 3? +dados_form.altura*100 : +dados_form.altura)/100)**2)
-    console.log(calculo);
-    console.log(!Number.isFinite(calculo));
-    console.log(!isNaN(calculo.toFixed(2)));
-    result_imc.innerHTML = `Imc Calculado: ${!isNaN(calculo.toFixed(2))? !Number.isFinite(calculo)? "0" : calculo.toFixed(2): "0"}`
-    if(dados_form.sexo == "Masculino")
-    {
-        if(calculo < 18.5)
-        {
-            result_faixa_imc.innerHTML = `Seu caso é: Abaixo do peso`
-        }
+    //Conversão e tratamento dos dados de entrada
+    const peso = parseFloat(dados_form.peso) || 0;
+    let altura = parseFloat(dados_form.altura) || 0;
+
+    // Se o usuário digitou a altura em centímetros (ex: 170), transforma em metros (1.70)
+    if (altura > 3) {
+        altura = altura / 100;
     }
-})
 
+    // Evita divisão por zero
+    if (peso === 0 || altura === 0) {
+        result_imc.innerHTML = "Imc Calculado: 0";
+        result_faixa_imc.innerHTML = "Diagnóstico: ...";
+        return; // Para a execução aqui até que o usuário digite dados válidos
+    }
 
+    // 2. Cálculo do IMC
+    const calculo = peso / (altura * altura);
+    result_imc.innerHTML = `Imc Calculado: ${calculo.toFixed(2)}`;
 
-function calcular_imc()
-{
+    // 3. Ajuste de faixa para o sexo feminino (Subtrai 1 das faixas superiores)
+    const ajusteSexo = (dados_form.sexo === "Feminino" || dados_form.sexo === "Femenino") ? 1 : 0;
 
-}
+    // 4. Classificação do IMC (Sem buracos entre os números)
+    if (calculo < 18.5) {
+        result_faixa_imc.innerHTML = "Diagnóstico: Abaixo do peso";
+    } 
+    else if (calculo <= 24.9 - ajusteSexo) {
+        result_faixa_imc.innerHTML = "Diagnóstico: Normal";
+    } 
+    else if (calculo <= 29.9 - ajusteSexo) {
+        result_faixa_imc.innerHTML = "Diagnóstico: Sobrepeso";
+    } 
+    else {
+        result_faixa_imc.innerHTML = "Diagnóstico: Obesidade";
+    }
+});

@@ -44,7 +44,25 @@
                     </div>
 
 
-                    <div class="face back">Desafio 2</div>
+                    <div class="face back">
+                        <section class="tela_desafio">
+                            <h2>Desafio 2 - Cálculo de IMC</h2>
+                            <article class="calculadora_imc">
+                                <form id="form_calcular_imc">
+                                    <label for="Peso">Peso(kg)</label>
+                                    <input type="number" placeholder="Insira aqui peso" name="peso" min="0">
+                                    <label for="Altura">Altura(cm)</label>
+                                    <input type="number" placeholder="Insira aqui peso" name="altura" min="0">
+                                    <label for="Masculino">Masculino</label>
+                                    <input type="radio" name="sexo" value="Masculino" checked>
+                                    <label for="Femenino">Femenino</label>
+                                    <input type="radio" name="sexo" value="Femenino">
+                                </form>
+                                <h4 id="result_imc">Imc Calculado: 0</h4>
+                                <h4 id="result_faixa_imc">Diagnóstico: ...</h4>
+                            </article>
+                        </section>
+                    </div>
                     <div class="face right">Desafio 3</div>
                     <div class="face left">Desafio 4</div>
                     <div class="face top">Desafio 5</div>

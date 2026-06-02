@@ -92,7 +92,7 @@ main #Display_dashboard .cube {
   transform-style: preserve-3d;
   cursor: grab;
   /* posição inicial */
-  transform: rotateX(-20deg) rotateY(30deg);
+  transform: rotateX(0deg) rotateY(180deg);
 }
 main #Display_dashboard .cube:active {
   cursor: grabbing;
@@ -112,7 +112,7 @@ main #Display_dashboard {
 }
 main #Display_dashboard .front {
   transform: translateZ(200px);
-  background-color: red;
+  background-color: var(--cor1);
   height: 100%;
   width: 100%;
   display: flex;
@@ -142,7 +142,6 @@ main #Display_dashboard .bottom {
 main #Display_dashboard .tela_desafio {
   width: 100%;
   height: 100%;
-  border: 3px solid var(--cor1);
   border-radius: 10px;
   transition: 0.2s ease-in-out;
   display: flex;
@@ -221,6 +220,12 @@ main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc {
   padding: 10px;
   font-size: small;
 }
+main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc label {
+  font-size: small;
+}
+main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc h4 {
+  font-size: small;
+}
 main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc input {
   text-align: center;
   font-size: small;
@@ -229,7 +234,7 @@ main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc input 
   outline: none;
 }
 main #Display_dashboard .tela_desafio .calculadora_imc #result_imc, main #Display_dashboard .tela_desafio .calculadora_imc #result_faixa_imc {
-  font-size: 2em;
+  font-size: 0.7em;
 }
 main #Display_dashboard .selecionado {
   right: 5%;
