@@ -308,6 +308,7 @@ footer a {
     align-items: center;
     justify-content: center;
     transform: rotateX(-20deg) rotateY(30deg);
+    touch-action: none;
   }
   main #Display_dashboard .cube:active {
     cursor: grabbing;

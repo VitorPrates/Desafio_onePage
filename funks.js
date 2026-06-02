@@ -24,7 +24,6 @@ let rotateY = 30;
 
 //Elementos 3D - funções
 eye.addEventListener("click",()=>{
-
     faces.forEach(face =>{
         console.log(face.style.opacity);
         face.style.opacity = face.style.opacity == 1 ? 0.5 : 1
@@ -32,21 +31,21 @@ eye.addEventListener("click",()=>{
 })
 
 
-cube.addEventListener('mousedown', (e) => {
+cube.addEventListener('pointerdown', (e) => {
     isDragging = true;
     document.body.style.userSelect = 'none';
     previousX = e.clientX;
     previousY = e.clientY;
 });
 
-window.addEventListener('mouseup', () => {
+window.addEventListener('pointerup', () => {
     isDragging = false;
     document.body.style.userSelect = '';
     // console.log(`X: ${rotateX} / Y: ${rotateY}`);
     // acoes_rotacao()
 });
 
-window.addEventListener('mousemove', (e) => {
+window.addEventListener('pointermove', (e) => {
     if (!isDragging) return;
 
     const deltaX = e.clientX - previousX;

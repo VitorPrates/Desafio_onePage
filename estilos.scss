@@ -363,6 +363,7 @@ footer
                 align-items: center;
                 justify-content: center;
                 transform: rotateX(-20deg) rotateY(30deg);
+                touch-action: none;
                 // transition: transform 0.5s ease;
             }
             .cube:active {
