@@ -98,6 +98,9 @@ main #Display_dashboard .cube {
   transform-style: preserve-3d;
   cursor: grab;
   /* posição inicial */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   transform: rotateX(-20deg) rotateY(30deg);
 }
 main #Display_dashboard .cube:active {
