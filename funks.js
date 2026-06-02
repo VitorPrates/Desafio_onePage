@@ -64,6 +64,7 @@ window.addEventListener('mousemove', (e) => {
 
 function rodar(pos)
 {
+    console.log(pos);
     if(!rodando)
     {
         rodando = true
@@ -100,6 +101,11 @@ function rodar(pos)
             case 6:
                 alvoX = 90;
                 alvoY = 0;
+                break;
+            case 7:
+                rodando = false
+                rodar(Math.floor(Math.random() * 6) + 1)
+                return
                 break;
         }
 
@@ -172,7 +178,8 @@ btns_opcao_desafio.forEach((btn,index) =>{
     btn.addEventListener("click", (e) =>{
         e.preventDefault()
         // background_dashboard.style.backgroundColor = `var(--cor${e.target.innerText.at(-1)})`
-        console.log(e.target.innerText.at(-1));
+        // console.log(e.target.innerText.at(-1));
+        // console.log(index+1);
         rodar(index+1)
         telas_desafios.forEach((tela,index) => {
             tela.classList.remove("selecionado")
