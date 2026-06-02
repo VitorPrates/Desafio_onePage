@@ -92,7 +92,7 @@ main #Display_dashboard .cube {
   transform-style: preserve-3d;
   cursor: grab;
   /* posição inicial */
-  transform: rotateX(0deg) rotateY(180deg);
+  transform: rotateX(-20deg) rotateY(30deg);
 }
 main #Display_dashboard .cube:active {
   cursor: grabbing;

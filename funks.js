@@ -11,10 +11,10 @@ let isDragging = false;
 let previousX = 0;
 let previousY = 0;
 
-// let rotateX = -20;
-// let rotateY = 30;
-let rotateX = 0;
-let rotateY = 180;
+let rotateX = -20;
+let rotateY = 30;
+// let rotateX = 0;
+// let rotateY = 180;
 
 //Fim elementos 3D - elementos
 
@@ -175,6 +175,7 @@ async function getdolar()
     const url = " https://economia.awesomeapi.com.br/json/last/USD-BRL"
     try {
         const dolar_hoje = await(await fetch(url)).json()
+        console.log(dolar_hoje);
         const dolar_atual = +dolar_hoje.USDBRL.bid
         dolar_padrao = +dolar_hoje.USDBRL.bid
         // console.log(dolar_atual.toLocaleString("pt-BR",{style:"currency", currency:"BRL"}));

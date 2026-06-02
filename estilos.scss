@@ -97,7 +97,7 @@ main
             transform-style: preserve-3d;
             cursor: grab;
             /* posição inicial */
-            transform: rotateX(0deg) rotateY(180deg);
+            transform: rotateX(-20deg) rotateY(30deg);
             // transition: transform 0.5s ease;
         }
         .cube:active {
