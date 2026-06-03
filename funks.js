@@ -293,11 +293,9 @@ form_imc.addEventListener("input", (e) => {
     const result_form = new FormData(form_imc);
     const dados_form = Object.fromEntries(result_form.entries());
 
-    //Conversão e tratamento dos dados de entrada
     const peso = parseFloat(dados_form.peso) || 0;
     let altura = parseFloat(dados_form.altura) || 0;
 
-    // Se o usuário digitou a altura em centímetros (ex: 170), transforma em metros (1.70)
     if (altura > 3) {
         altura = altura / 100;
     }
@@ -306,17 +304,13 @@ form_imc.addEventListener("input", (e) => {
     if (peso === 0 || altura === 0) {
         result_imc.innerHTML = "Imc Calculado: 0";
         result_faixa_imc.innerHTML = "Diagnóstico: ...";
-        return; // Para a execução aqui até que o usuário digite dados válidos
+        return; 
     }
-
-    // 2. Cálculo do IMC
     const calculo = peso / (altura * altura);
     result_imc.innerHTML = `Imc Calculado: ${calculo.toFixed(2)}`;
 
-    // 3. Ajuste de faixa para o sexo feminino (Subtrai 1 das faixas superiores)
     const ajusteSexo = (dados_form.sexo === "Feminino" || dados_form.sexo === "Femenino") ? 1 : 0;
 
-    // 4. Classificação do IMC (Sem buracos entre os números)
     if (calculo < 18.5) {
         result_faixa_imc.innerHTML = "Diagnóstico: Abaixo do peso";
     } 
@@ -376,12 +370,14 @@ lbs_form.addEventListener("input", (e) =>{
 function calcular_regra_3()
 {
     dados_calculo_r3[3] = (dados_calculo_r3[2] * dados_calculo_r3[1])/ dados_calculo_r3[0]
-    console.log(dados_calculo_r3[0]);
-    console.log(dados_calculo_r3[1]);
-    console.log(dados_calculo_r3[2]);
-    console.log(dados_calculo_r3[3]);
-    
-    resultado_de_3.innerHTML = dados_calculo_r3[3]
+    // console.log(dados_calculo_r3[0]);
+    // console.log(dados_calculo_r3[1]);
+    // console.log(dados_calculo_r3[2]);
+    // console.log(dados_calculo_r3[3]);
+    if(!isNaN(dados_calculo_r3[3].toFixed(2)) && dados_calculo_r3[0] != 0)
+    {
+        resultado_de_3.innerHTML = dados_calculo_r3[3].toFixed(2)
+    }
 }
 
 
