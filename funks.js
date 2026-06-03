@@ -38,6 +38,12 @@ const lbs_form = document.querySelector(".lbs_form")
 const kg_input = document.getElementById("kg_input")
 const lbs_input = document.getElementById("lbs_input")
 
+//desafio 6
+const entradas_conhecidas_form = document.querySelector(".entradas_conhecidas_form")
+const calculas_regra_form = document.querySelector(".calculas_regra_form")
+const resultado_de_3 = document.getElementById("resultado_de_3")
+let dados_calculo_r3 = [0,0,0,0]
+
 //Elementos 3D - elementos
 const cube = document.getElementById('cube');
 const faces = document.querySelectorAll(".face")
@@ -46,8 +52,8 @@ const eye = document.querySelector(".olho")
 let rodando = false
 
 let isDragging = false;
-let previousX = 0;
-let previousY = 0;
+// let previousX = 0;
+// let previousY = 0;
 
 let rotateX = -20;
 let rotateY = 30;
@@ -271,6 +277,7 @@ btn_mudar_conversao.addEventListener("click",()=>{
 
 //desafio 2
 form_imc.addEventListener("input", (e) => {
+    e.preventDefault()
     const result_form = new FormData(form_imc);
     const dados_form = Object.fromEntries(result_form.entries());
 
@@ -315,11 +322,13 @@ form_imc.addEventListener("input", (e) => {
 //Desafio 3
 form_celsius.addEventListener("input", (e) =>{
 //   °C → °F: C × 1.8 + 32
+    e.preventDefault()
     let calculo_temperatura = (e.target.value * 1.8) + 32
     fahrenheit_input.value = calculo_temperatura.toFixed(2)
 })
 form_fahrenheit.addEventListener("input", (e) =>{
 //   °F → °C: (F − 32) / 1.8
+    e.preventDefault()
     let calculo_temperatura = (e.target.value - 32) / 1.8
     celsius_input.value = calculo_temperatura.toFixed(2)
 })
@@ -327,21 +336,53 @@ form_fahrenheit.addEventListener("input", (e) =>{
 //Desafio 4
 kmh_form.addEventListener("input", (e) =>{
 //1 km/h = 0.621371 mph
+    e.preventDefault()
     let calculo_velocidade= e.target.value * 0.621371
     mph_input.value = calculo_velocidade.toFixed(2)
 })
 mph_form.addEventListener("input", (e) =>{
+    e.preventDefault()
     let calculo_velocidade =  e.target.value / 0.621371
     kmh_input.value = calculo_velocidade.toFixed(2)
 })
 
 //Desafio 5
 kg_form.addEventListener("input", (e) =>{
-//1 kg = 2,20462 Libras
+    //1 kg = 2,20462 Libras
+    e.preventDefault()
     let calculo_massa= e.target.value * 2.20462
     lbs_input.value = calculo_massa.toFixed(2)
 })
 lbs_form.addEventListener("input", (e) =>{
+    e.preventDefault()
     let calculo_massa =  e.target.value / 2.20462
     kg_input.value = calculo_massa.toFixed(2)
+})
+
+
+//desafio 6
+function calcular_regra_3()
+{
+    dados_calculo_r3[3] = (dados_calculo_r3[2] * dados_calculo_r3[1])/dados_calculo_r3[2] * dados_calculo_r3[0]
+    console.log(dados_calculo_r3[0]);
+    console.log(dados_calculo_r3[1]);
+    console.log(dados_calculo_r3[2]);
+    console.log(dados_calculo_r3[3]);
+    
+    resultado_de_3.innerHTML = dados_calculo_r3[3]
+}
+
+
+entradas_conhecidas_form.addEventListener("input", (e) =>{
+    e.preventDefault()
+    const result_form = new FormData(entradas_conhecidas_form);
+    const dados_form = Object.fromEntries(result_form.entries());
+    dados_calculo_r3[0] = +dados_form.entrada_x
+    dados_calculo_r3[1] = +dados_form.result_x
+    calcular_regra_3()
+})
+calculas_regra_form.addEventListener("input",(e) =>{
+    e.preventDefault()
+    dados_calculo_r3[2] = +e.target.value
+    calcular_regra_3()
 })
