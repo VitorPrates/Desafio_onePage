@@ -1,8 +1,30 @@
+//Barra Lateral
 const btns_opcao_desafio = document.querySelectorAll(".btn_opcao_desafio")
 const telas_desafios = document.querySelectorAll(".tela_desafio")
 const background_dashboard = document.getElementById("Display_dashboard")
 const tela_conversor = document.querySelector(".conversor")
 const btn_mudar_conversao = document.querySelector(".btn_mudar_conversao")
+
+//desafio 1
+const dolar_atual_view = document.querySelector(".dolar_atual")
+const real_atual_view = document.querySelector(".real_atual")
+const conversao_atual_view = document.querySelector(".conversao_atual")
+const para_converter_view = document.querySelector(".para_converter")
+const form_dolar = document.getElementById("form_conversor")
+let dolar_padrao = 5
+let real_para_dolar = true
+
+//Desafio 2
+let imc = 0
+const form_imc = document.getElementById("form_calcular_imc")
+const result_imc = document.getElementById("result_imc")
+const result_faixa_imc = document.getElementById("result_faixa_imc")
+
+//Desafio 3
+const form_celsius = document.querySelector(".celsius_form")
+const form_fahrenheit = document.querySelector(".fahrenheit_form")
+const celsius_input = document.getElementById("celsius_input")
+const fahrenheit_input = document.getElementById("fahrenheit_input")
 
 //Elementos 3D - elementos
 const cube = document.getElementById('cube');
@@ -154,22 +176,6 @@ function acoes_rotacao()
 //Fim- elementos 3d - funções
 
 
-//desafio 1
-const dolar_atual_view = document.querySelector(".dolar_atual")
-const real_atual_view = document.querySelector(".real_atual")
-const conversao_atual_view = document.querySelector(".conversao_atual")
-const para_converter_view = document.querySelector(".para_converter")
-const form_dolar = document.getElementById("form_conversor")
-let dolar_padrao = 5
-let real_para_dolar = true
-
-//Desafio 2
-let imc = 0
-const form_imc = document.getElementById("form_calcular_imc")
-const result_imc = document.getElementById("result_imc")
-const result_faixa_imc = document.getElementById("result_faixa_imc")
-
-
 //barra lateral
 btns_opcao_desafio.forEach((btn,index) =>{
     btn.style.backgroundColor = `var(--cor${index+1})`
@@ -293,3 +299,15 @@ form_imc.addEventListener("input", (e) => {
         result_faixa_imc.innerHTML = "Diagnóstico: Obesidade";
     }
 });
+
+//Desafio 3
+form_celsius.addEventListener("input", (e) =>{
+//   °C → °F: C × 1.8 + 32
+    let calculo_temperatura = (e.target.value * 1.8) + 32
+    fahrenheit_input.value = calculo_temperatura.toFixed(2)
+})
+form_fahrenheit.addEventListener("input", (e) =>{
+//   °F → °C: (F − 32) / 1.8
+    let calculo_temperatura = (e.target.value - 32) / 1.8
+    celsius_input.value = calculo_temperatura.toFixed(2)
+})

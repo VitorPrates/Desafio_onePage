@@ -101,7 +101,7 @@ main #Display_dashboard .cube {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotateX(-20deg) rotateY(30deg);
+  transform: rotateX(0deg) rotateY(90deg);
 }
 main #Display_dashboard .cube:active {
   cursor: grabbing;
@@ -246,6 +246,33 @@ main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc input 
 main #Display_dashboard .tela_desafio .calculadora_imc #result_imc, main #Display_dashboard .tela_desafio .calculadora_imc #result_faixa_imc {
   font-size: 0.7em;
 }
+main #Display_dashboard .tela_desafio .celsius_calculator {
+  height: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form, main #Display_dashboard .tela_desafio .celsius_calculator .fahrenheit_form {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  border-radius: 10px;
+}
+main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form label, main #Display_dashboard .tela_desafio .celsius_calculator .fahrenheit_form label {
+  font-size: 0.7em;
+}
+main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form input, main #Display_dashboard .tela_desafio .celsius_calculator .fahrenheit_form input {
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 7px 0px;
+  text-align: center;
+  outline: none;
+  border: none;
+}
 main #Display_dashboard .selecionado {
   right: 5%;
 }
@@ -350,14 +377,6 @@ footer a {
     background-color: var(--cor6);
     transform: rotateX(-90deg) translateZ(125px);
   }
-  main #Display_dashboard .tela_desafio .conversor {
-    color: black;
-    height: 95%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-  }
   main #Display_dashboard .tela_desafio .conversor .conversao h4, main #Display_dashboard .tela_desafio .conversor .convertido h4 {
     font-size: 0.6em;
   }
@@ -379,5 +398,8 @@ footer a {
   }
   main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor label, main #Display_dashboard .tela_desafio .conversor .convertido #form_conversor label {
     font-size: small;
+  }
+  main #Display_dashboard .tela_desafio .celsius_calculator {
+    flex-direction: column;
   }
 }/*# sourceMappingURL=estilos.css.map */
