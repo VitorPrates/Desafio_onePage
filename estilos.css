@@ -296,6 +296,7 @@ main #Display_dashboard .tela_desafio .calculo_regra_3 .entradas_conhecidas_form
 }
 main #Display_dashboard .tela_desafio .calculo_regra_3 .entradas_conhecidas_form label, main #Display_dashboard .tela_desafio .calculo_regra_3 .calculas_regra_form label {
   font-size: 0.7em;
+  font-weight: bold;
 }
 main #Display_dashboard .tela_desafio .calculo_regra_3 .entradas_conhecidas_form input, main #Display_dashboard .tela_desafio .calculo_regra_3 .calculas_regra_form input {
   width: 70%;

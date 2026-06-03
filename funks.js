@@ -5,6 +5,9 @@ const background_dashboard = document.getElementById("Display_dashboard")
 const tela_conversor = document.querySelector(".conversor")
 const btn_mudar_conversao = document.querySelector(".btn_mudar_conversao")
 
+//todos os forms
+const all_forms = document.querySelectorAll("form")
+
 //desafio 1
 const dolar_atual_view = document.querySelector(".dolar_atual")
 const real_atual_view = document.querySelector(".real_atual")
@@ -211,6 +214,14 @@ btns_opcao_desafio.forEach((btn,index) =>{
     })
 })
 
+//removendo todos os "submits" para não bugar ao apertar enter
+all_forms.forEach(form =>{
+    form.addEventListener("submit",(e) =>{
+        e.preventDefault()
+    })
+})
+
+
 
 //Desafio 1
 async function getdolar()
@@ -244,6 +255,7 @@ function calcular_resultado_cotacao(valor)
     }
 }
 form_dolar.addEventListener("input", (e)=>{
+    e.preventDefault()
     let input_user = e.target.value
     calcular_resultado_cotacao(input_user)
 })
