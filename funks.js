@@ -26,6 +26,18 @@ const form_fahrenheit = document.querySelector(".fahrenheit_form")
 const celsius_input = document.getElementById("celsius_input")
 const fahrenheit_input = document.getElementById("fahrenheit_input")
 
+//Desafio 4
+const kmh_form = document.querySelector(".kmh_form")
+const mph_form = document.querySelector(".mph_form")
+const kmh_input = document.getElementById("kmh_input")
+const mph_input = document.getElementById("mph_input")
+
+//Desafio 5
+const kg_form = document.querySelector(".kg_form")
+const lbs_form = document.querySelector(".lbs_form")
+const kg_input = document.getElementById("kg_input")
+const lbs_input = document.getElementById("lbs_input")
+
 //Elementos 3D - elementos
 const cube = document.getElementById('cube');
 const faces = document.querySelectorAll(".face")
@@ -310,4 +322,26 @@ form_fahrenheit.addEventListener("input", (e) =>{
 //   °F → °C: (F − 32) / 1.8
     let calculo_temperatura = (e.target.value - 32) / 1.8
     celsius_input.value = calculo_temperatura.toFixed(2)
+})
+
+//Desafio 4
+kmh_form.addEventListener("input", (e) =>{
+//1 km/h = 0.621371 mph
+    let calculo_velocidade= e.target.value * 0.621371
+    mph_input.value = calculo_velocidade.toFixed(2)
+})
+mph_form.addEventListener("input", (e) =>{
+    let calculo_velocidade =  e.target.value / 0.621371
+    kmh_input.value = calculo_velocidade.toFixed(2)
+})
+
+//Desafio 5
+kg_form.addEventListener("input", (e) =>{
+//1 kg = 2,20462 Libras
+    let calculo_massa= e.target.value * 2.20462
+    lbs_input.value = calculo_massa.toFixed(2)
+})
+lbs_form.addEventListener("input", (e) =>{
+    let calculo_massa =  e.target.value / 2.20462
+    kg_input.value = calculo_massa.toFixed(2)
 })

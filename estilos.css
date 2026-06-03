@@ -101,7 +101,7 @@ main #Display_dashboard .cube {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotateX(0deg) rotateY(90deg);
+  transform: rotateX(90deg) rotateY(0deg);
 }
 main #Display_dashboard .cube:active {
   cursor: grabbing;
@@ -246,14 +246,14 @@ main #Display_dashboard .tela_desafio .calculadora_imc #form_calcular_imc input 
 main #Display_dashboard .tela_desafio .calculadora_imc #result_imc, main #Display_dashboard .tela_desafio .calculadora_imc #result_faixa_imc {
   font-size: 0.7em;
 }
-main #Display_dashboard .tela_desafio .celsius_calculator {
+main #Display_dashboard .tela_desafio .celsius_calculator, main #Display_dashboard .tela_desafio .kmh_calculator, main #Display_dashboard .tela_desafio .kg_calculator {
   height: 95%;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form, main #Display_dashboard .tela_desafio .celsius_calculator .fahrenheit_form {
+main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form, main #Display_dashboard .tela_desafio .celsius_calculator .fahrenheit_form, main #Display_dashboard .tela_desafio .celsius_calculator .kmh_form, main #Display_dashboard .tela_desafio .celsius_calculator .mph_form, main #Display_dashboard .tela_desafio .celsius_calculator .kg_form, main #Display_dashboard .tela_desafio .celsius_calculator .lbs_form, main #Display_dashboard .tela_desafio .kmh_calculator .celsius_form, main #Display_dashboard .tela_desafio .kmh_calculator .fahrenheit_form, main #Display_dashboard .tela_desafio .kmh_calculator .kmh_form, main #Display_dashboard .tela_desafio .kmh_calculator .mph_form, main #Display_dashboard .tela_desafio .kmh_calculator .kg_form, main #Display_dashboard .tela_desafio .kmh_calculator .lbs_form, main #Display_dashboard .tela_desafio .kg_calculator .celsius_form, main #Display_dashboard .tela_desafio .kg_calculator .fahrenheit_form, main #Display_dashboard .tela_desafio .kg_calculator .kmh_form, main #Display_dashboard .tela_desafio .kg_calculator .mph_form, main #Display_dashboard .tela_desafio .kg_calculator .kg_form, main #Display_dashboard .tela_desafio .kg_calculator .lbs_form {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -262,16 +262,57 @@ main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form, main #D
   padding: 7px;
   border-radius: 10px;
 }
-main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form label, main #Display_dashboard .tela_desafio .celsius_calculator .fahrenheit_form label {
+main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form label, main #Display_dashboard .tela_desafio .celsius_calculator .fahrenheit_form label, main #Display_dashboard .tela_desafio .celsius_calculator .kmh_form label, main #Display_dashboard .tela_desafio .celsius_calculator .mph_form label, main #Display_dashboard .tela_desafio .celsius_calculator .kg_form label, main #Display_dashboard .tela_desafio .celsius_calculator .lbs_form label, main #Display_dashboard .tela_desafio .kmh_calculator .celsius_form label, main #Display_dashboard .tela_desafio .kmh_calculator .fahrenheit_form label, main #Display_dashboard .tela_desafio .kmh_calculator .kmh_form label, main #Display_dashboard .tela_desafio .kmh_calculator .mph_form label, main #Display_dashboard .tela_desafio .kmh_calculator .kg_form label, main #Display_dashboard .tela_desafio .kmh_calculator .lbs_form label, main #Display_dashboard .tela_desafio .kg_calculator .celsius_form label, main #Display_dashboard .tela_desafio .kg_calculator .fahrenheit_form label, main #Display_dashboard .tela_desafio .kg_calculator .kmh_form label, main #Display_dashboard .tela_desafio .kg_calculator .mph_form label, main #Display_dashboard .tela_desafio .kg_calculator .kg_form label, main #Display_dashboard .tela_desafio .kg_calculator .lbs_form label {
   font-size: 0.7em;
 }
-main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form input, main #Display_dashboard .tela_desafio .celsius_calculator .fahrenheit_form input {
+main #Display_dashboard .tela_desafio .celsius_calculator .celsius_form input, main #Display_dashboard .tela_desafio .celsius_calculator .fahrenheit_form input, main #Display_dashboard .tela_desafio .celsius_calculator .kmh_form input, main #Display_dashboard .tela_desafio .celsius_calculator .mph_form input, main #Display_dashboard .tela_desafio .celsius_calculator .kg_form input, main #Display_dashboard .tela_desafio .celsius_calculator .lbs_form input, main #Display_dashboard .tela_desafio .kmh_calculator .celsius_form input, main #Display_dashboard .tela_desafio .kmh_calculator .fahrenheit_form input, main #Display_dashboard .tela_desafio .kmh_calculator .kmh_form input, main #Display_dashboard .tela_desafio .kmh_calculator .mph_form input, main #Display_dashboard .tela_desafio .kmh_calculator .kg_form input, main #Display_dashboard .tela_desafio .kmh_calculator .lbs_form input, main #Display_dashboard .tela_desafio .kg_calculator .celsius_form input, main #Display_dashboard .tela_desafio .kg_calculator .fahrenheit_form input, main #Display_dashboard .tela_desafio .kg_calculator .kmh_form input, main #Display_dashboard .tela_desafio .kg_calculator .mph_form input, main #Display_dashboard .tela_desafio .kg_calculator .kg_form input, main #Display_dashboard .tela_desafio .kg_calculator .lbs_form input {
   width: -moz-fit-content;
   width: fit-content;
   padding: 7px 0px;
   text-align: center;
   outline: none;
   border: none;
+}
+main #Display_dashboard .tela_desafio .calculo_regra_3 {
+  height: 95%;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  color: white;
+}
+main #Display_dashboard .tela_desafio .calculo_regra_3 p {
+  text-align: center;
+}
+main #Display_dashboard .tela_desafio .calculo_regra_3 .entradas_conhecidas_form, main #Display_dashboard .tela_desafio .calculo_regra_3 .calculas_regra_form {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 5px;
+}
+main #Display_dashboard .tela_desafio .calculo_regra_3 .entradas_conhecidas_form label, main #Display_dashboard .tela_desafio .calculo_regra_3 .calculas_regra_form label {
+  font-size: 0.7em;
+}
+main #Display_dashboard .tela_desafio .calculo_regra_3 .entradas_conhecidas_form input, main #Display_dashboard .tela_desafio .calculo_regra_3 .calculas_regra_form input {
+  width: 70%;
+  text-align: center;
+  padding: 7px 0px;
+  background-color: transparent;
+  color: var(--basico1);
+  outline: none;
+  border: none;
+  font-weight: bold;
+  font-size: 0.5em;
+}
+main #Display_dashboard .tela_desafio .calculo_regra_3 .entradas_conhecidas_form input::-moz-placeholder, main #Display_dashboard .tela_desafio .calculo_regra_3 .calculas_regra_form input::-moz-placeholder {
+  color: var(--basico1);
+}
+main #Display_dashboard .tela_desafio .calculo_regra_3 .entradas_conhecidas_form input::placeholder, main #Display_dashboard .tela_desafio .calculo_regra_3 .calculas_regra_form input::placeholder {
+  color: var(--basico1);
 }
 main #Display_dashboard .selecionado {
   right: 5%;
@@ -399,7 +440,7 @@ footer a {
   main #Display_dashboard .tela_desafio .conversor .conversao #form_conversor label, main #Display_dashboard .tela_desafio .conversor .convertido #form_conversor label {
     font-size: small;
   }
-  main #Display_dashboard .tela_desafio .celsius_calculator {
+  main #Display_dashboard .tela_desafio .celsius_calculator, main #Display_dashboard .tela_desafio .kmh_calculator, main #Display_dashboard .tela_desafio .kg_calculator {
     flex-direction: column;
   }
 }/*# sourceMappingURL=estilos.css.map */
