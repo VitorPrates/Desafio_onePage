@@ -101,7 +101,7 @@ main #Display_dashboard .cube {
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotateX(90deg) rotateY(0deg);
+  transform: rotateX(-20deg) rotateY(30deg);
 }
 main #Display_dashboard .cube:active {
   cursor: grabbing;

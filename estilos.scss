@@ -113,7 +113,7 @@ main
             display: flex;
             align-items: center;
             justify-content: center;
-            transform: rotateX(90deg) rotateY(0deg);
+            transform: rotateX(-20deg) rotateY(30deg);
             // transition: transform 0.5s ease;
         }
         .cube:active {
@@ -332,7 +332,6 @@ main
                 p
                 {
                     text-align: center;
-                    
                 }
                 .entradas_conhecidas_form,.calculas_regra_form
                 {
