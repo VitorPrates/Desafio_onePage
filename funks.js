@@ -363,7 +363,7 @@ lbs_form.addEventListener("input", (e) =>{
 //desafio 6
 function calcular_regra_3()
 {
-    dados_calculo_r3[3] = (dados_calculo_r3[2] * dados_calculo_r3[1])/dados_calculo_r3[2] * dados_calculo_r3[0]
+    dados_calculo_r3[3] = (dados_calculo_r3[2] * dados_calculo_r3[1])/ dados_calculo_r3[0]
     console.log(dados_calculo_r3[0]);
     console.log(dados_calculo_r3[1]);
     console.log(dados_calculo_r3[2]);
